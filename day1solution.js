@@ -2,8 +2,17 @@ const Mass = [140170,75120,75645,134664,124948,137630,146662,116881,120030,94332
 
 // For a mass of 12, divide by 3 and round down to get 4, then subtract 2 to get 2.
 
-let divided = Mass.map(mass => mass / 3)
-let rounded = divided.map(mass => Math.floor(mass))
-let subtracted = rounded.map(mass => mass - 2)
-let solution = subtracted.reduce((a,b) => a + b, 0)
-console.log(solution)
+// let divided = Mass.map(mass => mass / 3)
+// let rounded = divided.map(mass => Math.floor(mass))
+// let subtracted = rounded.map(mass => mass - 2)
+// let solution = subtracted.reduce((a,b) => a + b, 0)
+// console.log(solution) //3263320
+
+//refactored
+
+const neededFuel = Mass
+  .map(mass => mass / 3)
+  .map(mass => Math.floor(mass))
+  .map(mass => mass - 2)
+  .reduce((a,b) => a + b, 0);
+  console.log(neededFuel) //3263320
